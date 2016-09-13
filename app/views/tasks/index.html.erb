@@ -1,55 +1,52 @@
-<p id="notice"><%= notice %></p>
+<% if notice.nil? %>
+<% else %>
+    <div class="container">
+      <div class="alert alert-info" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div>
+<% end %>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4>Board</h4>
 
-<h1>To do</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Content</th>
-    <th>State</th>
-    <th colspan="4"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <%= render @to_do %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
-
-<br>
-
-<h1>Doing</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Content</th>
-    <th>State</th>
-    <th colspan="5"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <%= render @doing %>
-  </tbody>
-</table>
-<br>
-<h1>Done</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Content</th>
-    <th>State</th>
-    <th colspan="4"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <%= render @done %>
-  </tbody>
-</table>
+    </div>
+    <div class="panel-body">
+      <div class="container" style="margin-bottom: 1em">
+        <%= link_to "<i class='fa fa-plus'></i>".html_safe, new_task_path, class: 'btn btn-primary btn-block' %>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading text-center">
+            <h5>To Do</h5>
+          </div>
+          <div class="panel-body">
+            <%= render @to_do %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading text-center">
+            <h5>Doing</h5>
+          </div>
+          <div class="panel-body">
+            <%= render @doing %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading text-center">
+            <h5>Done</h5>
+          </div>
+          <div class="panel-body">
+            <%= render @done %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
