@@ -1,14 +1,23 @@
 <%= simple_form_for(@task) do |f| %>
+    <% if f.error_notification.nil? %>
+    <% else %>
+        <div class="container">
+          <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <p id="notice"><%= f.error_notification %></p>
+          </div>
+        </div>
+    <% end %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :content %>
+    <div class="form-group">
+      <%= f.input :content, required: true, label: false, autofocus:true, class: 'form-control', placeholder: 'Content' %>
     </div>
     <div class="form-group">
       <%= f.input :state %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
+    <div class="form-group">
+      <%= f.button :submit , class: 'btn btn-primary btn-block' %>
     </div>
 <% end %>
