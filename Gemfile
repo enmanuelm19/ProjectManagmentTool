@@ -49,3 +49,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'auto_html', '~>1.6'
+
+group :production do
+  gem 'rails_12factor'
+end
